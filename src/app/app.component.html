@@ -61,33 +61,68 @@
 
   <div *ngIf="showProjection" class="card" style="background-color: #f6f6f6; margin-top: 10px;">
     <div class="card-body">
-      <h4 class="card-title">Calculation Projection</h4>
-      <form [formGroup]="emiForm">
-        <div class="form-group row">
-          <label for="inputEmail3" class="font-weight-bold col-sm-2 col-form-label">Final Amount</label>
-          <div class="col-sm-6">
-            {{totalAmount}}
-          </div>
+      <h4 class="card-title" style="color:#CC6103"
+      >Calculation Projection</h4>
+      <hr/>
+      <div class="row">
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label">Final Investment Value</label>
+           <div class="label-margin" style="color: #4496bf;font-size: 40px;font-weight: bold;">£{{totalAmount}}</div>
         </div>
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label">Initial Balance</label>
+          <div  class="label-margin"  style="color: #bbb;font-size: 40px;font-weight: bold;">£{{initialBalance}}</div>
+        </div>
+      </div>
 
-        <div class="form-group row">
-          <label for="inputEmail3" class="font-weight-bold col-sm-2 col-form-label">Initial Balance</label>
-          <div class="col-sm-6">
-            <div class="input-group">
-              {{initialBalance}}
-            </div>
-          </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label">Total Interest Earned</label>
+           <div class="label-margin"  style="color: #cd6c00;font-size: 40px;font-weight: bold;">£{{totalInterest}}</div>
         </div>
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label">Total Monthly Deposits</label>
+          <div  class="label-margin"  style="color: #bbb;font-size: 40px;font-weight: bold;">£0.00</div>
+        </div>
+      </div>
 
-        <div class="form-group row">
-          <label for="inputPassword3" class="font-weight-bold col-sm-2 col-form-label">Total Interest Earned</label>
-          <div class="col-sm-6">
-            <div class="input-group">
-              {{totalInterest}}
-            </div>
-          </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label"></label>
+          <div></div>
         </div>
-      </form>
+        <div class="col">
+          <label for="inputEmail3" class="col-sm-6 col-form-label">Effective Annual Rate</label>
+           <div  class="label-margin"  style="color: #bbb;font-size: 40px;font-weight: bold;">{{roi}}%</div>
+        </div>
+       
+      </div>
+
+      <hr/>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="head-top-0" scope="col">Year</th>
+          <th class="head-top-0" scope="col">Year Deposits</th>
+          <th class="head-top-0" scope="col">Year Interest</th>
+          <th  class="head-top-1" scope="col">Total Deposits</th>
+          <th class="head-top-2" scope="col">Total Interest</th>
+          <th  class="head-top-3" scope="col">Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let intTable of interestTable;last as isLast">
+          <td [ngClass]="{'head-top-0':isLast}">{{intTable.sNo}}</td>
+          <td [ngClass]="{'head-top-0':isLast}">£{{intTable.yearDepo}}</td>
+          <td [ngClass]="{'head-top-0':isLast}" >£{{intTable.yearInterest}}</td>
+          <td [ngClass]="{'head-top-1':isLast}">£{{intTable.totalDeposits}}</td>
+          <td [ngClass]="{'head-top-2':isLast}">£{{intTable.totalInterest}}</td>
+          <td [ngClass]="{'head-top-3':isLast}">£{{intTable.balance}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <p>Interest compounded yearly</p>
     </div>
   </div>
 </div>
