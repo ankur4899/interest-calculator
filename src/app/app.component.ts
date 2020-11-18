@@ -1,33 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-const COUNTRIES = [
-  {
-    name: 'Russia',
-    flag: 'f/f3/Flag_of_Russia.svg',
-    area: 17075200,
-    population: 146989754
-  },
-  {
-    name: 'Canada',
-    flag: 'c/cf/Flag_of_Canada.svg',
-    area: 9976140,
-    population: 36624199
-  },
-  {
-    name: 'United States',
-    flag: 'a/a4/Flag_of_the_United_States.svg',
-    area: 9629091,
-    population: 324459463
-  },
-  {
-    name: 'China',
-    flag: 'f/fa/Flag_of_the_People%27s_Republic_of_China.svg',
-    area: 9596960,
-    population: 1409517397
-  }
-];
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -88,7 +61,7 @@ export class AppComponent implements OnInit {
     this.roi=data.roi;
     this.totalInterest = this.simpleInterest(data.amount, (data.roi / 100), data.year).toFixed(2);
     this.initialBalance = data.amount.toFixed(2);
-    this.totalAmount = (parseInt(this.initialBalance, 10) + parseFloat(this.totalInterest)).toFixed(2);
+    this.totalAmount = (parseFloat(this.initialBalance) + parseFloat(this.totalInterest)).toFixed(2);
     this.prepareTable(data);
     this.showProjection = true;
   }
@@ -107,7 +80,7 @@ export class AppComponent implements OnInit {
       balance:''
     }
     
-    obj.balance = (parseInt(interestBalance, 10)+parseFloat(yearInterest)).toFixed(2);
+    obj.balance = (parseFloat(interestBalance)+parseFloat(yearInterest)).toFixed(2);
     obj.totalInterest =(parseFloat(totalInterest)+parseFloat(yearInterest)).toFixed(2);
     interestBalance = obj.balance;
     totalInterest = obj.totalInterest
