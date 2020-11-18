@@ -82,6 +82,7 @@ export class AppComponent implements OnInit {
    * On Calculate Button Click
    */
   onCalculate(): void {
+    this.interestTable = [];
     const data = this.emiForm.value;
 
     this.roi=data.roi;
