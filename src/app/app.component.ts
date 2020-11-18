@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
      let obj = {
       sNo:0,
       yearDepo:'0.00',
-      yearInterest:yearInterest,
+     yearInterest:this.emiForm.value.roi,
       totalDeposits:this.initialBalance,
       totalInterest:'',
       balance:''
