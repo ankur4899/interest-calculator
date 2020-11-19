@@ -115,7 +115,7 @@
         <tr *ngFor="let intTable of interestTable;last as isLast">
           <td [ngClass]="{'head-top-0':isLast}">{{intTable.sNo}}</td>
           <td [ngClass]="{'head-top-0':isLast}">£{{intTable.yearDepo}}</td>
-          <td [ngClass]="{'head-top-0':isLast}" >£{{intTable.yearInterest}}</td>
+          <td [ngClass]="{'head-top-0':isLast}" >{{intTable.yearInterest}}%</td>
           <td [ngClass]="{'head-top-1':isLast}">£{{intTable.totalDeposits}}</td>
           <td [ngClass]="{'head-top-2':isLast}">£{{intTable.totalInterest}}</td>
           <td [ngClass]="{'head-top-3':isLast}">£{{intTable.balance}}</td>
