@@ -1,8 +1,8 @@
 //Install express server
 const express = require('express');
-const path = require('path');
+var path = require('path');
 
-const app = express();
+var app = express();
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/interest-calculator'));
