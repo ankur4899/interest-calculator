@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
    * @param evt
    */
   onYearChange(evt): void {
-    const year = this.emiForm.value.year;
+    let year = this.emiForm.value.year;
     this.rateOfInterest = this.paymentFrequency.filter(element => element.year == year);
     this.emiForm.get('roi').setValue(this.rateOfInterest[0].roi);
     this.interestTable = [];
