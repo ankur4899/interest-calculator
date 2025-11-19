@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     { year: 5, roi: 8 },
   ];
 
-  rateOfInterest: { year: number; roi: number; }[];
+  final rateOfInterest: { year: number; roi: number; }[];
   roi = 0;
 
   ngOnInit(): void {
