@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ];
 
   rateOfInterest: { year: number; roi: number; }[];
-  roi = 0;
+  static roi = 0;
 
   ngOnInit(): void {
     this.createForm();
