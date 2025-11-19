@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   interestTable=[]
 
 
-  paymentFrequency = [
+  static paymentFrequency = [
     { year: 2, roi: 6 },
     { year: 3, roi: 7 },
     { year: 5, roi: 8 },
