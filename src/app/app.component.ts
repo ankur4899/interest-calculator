@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   interestTable=[]
 
 
-  final static paymentFrequency = [
+  static paymentFrequency = [
     { year: 2, roi: 6 },
     { year: 3, roi: 7 },
     { year: 5, roi: 8 },
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
    * @param evt
    */
   onYearChange(evt): void {
-    let year = this.emiForm.value.year;
+    var year = this.emiForm.value.year;
     this.rateOfInterest = this.paymentFrequency.filter(element => element.year == year);
     this.emiForm.get('roi').setValue(this.rateOfInterest[0].roi);
     this.interestTable = [];
